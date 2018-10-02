@@ -16,6 +16,10 @@ public class Customer {
         this.transactions.add(amount);
     }
 
+    public Customer createCustomer(String name, double initialAmount) {
+        return new Customer(name, initialAmount);
+    }
+
     public String getName() {
         return name;
     }

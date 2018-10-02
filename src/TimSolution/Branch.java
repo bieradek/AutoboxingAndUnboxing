@@ -11,10 +11,6 @@ public class Branch {
         this.customers = new ArrayList<Customer>();
     }
 
-    public String getName() {
-        return name;
-    }
-
     public boolean newCustomer(String customerName, double initialAmount) {
         if (findCustomer(customerName) != null) {
             this.customers.add(new Customer(customerName, initialAmount)); // add to the list a new customer with gvien name and initial amount, i.e. create customer on the fly
@@ -24,8 +20,29 @@ public class Branch {
     }
 
     public boolean addCustomerTransaction(String customerName, double amount) {
-        Customer existingCustomer = findCustomer(customerName);
-        if (findCustomer(customerName) != null) {
+        Customer existingCustomer = findCustomer(customerName); // in other words existingCustomer is a boolean in a sense: doesCustomerExist
+        if (existingCustomer != null) {
+            existingCustomer.addTransaction(amount);
+            return true;
         }
+        return false;
+    }
+
+    private Customer findCustomer(String customerName) {
+        for (int i = 0; i <= this.customers.size(); i++) {
+            Customer checkedCustomer = this.customers.get(i);
+            if (checkedCustomer.getName().equals(customerName)) {
+                return checkedCustomer; // < -- this.customers.get(i)
+            }
+        }
+        return null;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void addCustomer(Customer newCustomer) {
+        customers.add(newCustomer);
     }
 }
