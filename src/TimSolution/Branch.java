@@ -29,7 +29,7 @@ public class Branch {
     }
 
     private Customer findCustomer(String customerName) {
-        for (int i = 0; i <= this.customers.size(); i++) {
+        for (int i = 0; i < this.customers.size(); i++) {
             Customer checkedCustomer = this.customers.get(i);
             if (checkedCustomer.getName().equals(customerName)) {
                 return checkedCustomer; // < -- this.customers.get(i)
@@ -40,10 +40,6 @@ public class Branch {
 
     public String getName() {
         return name;
-    }
-
-    public void addCustomer(Customer newCustomer) {
-        customers.add(newCustomer);
     }
 
     public ArrayList<Customer> getCustomers() {

@@ -25,16 +25,28 @@ public class Main {
         // Add data validation.
         // e.g. check if exists, or does not exist, etc.
         // Think about where you are adding the code to perform certain actions
+
         Bank bank = new Bank("National Bank");
-        bank.addBranch("Some location");
-        bank.addCustomer("Some location","Tim",50.50);
-        bank.addCustomer("Some location","Mike",175.34);
-        bank.addCustomer("Some location", "Percy", 220.12);
+        bank.addBranch("Some");
+        bank.addCustomer("Some", "Tim", 50.50);
+        bank.addCustomer("Some", "Mike", 175.34);
+        bank.addCustomer("Some", "Percy", 220.12);
         bank.addBranch("Sydney");
-        bank.addCustomer("Sydney","Bob",150.53);
-        bank.addCustomerTransaction("Some location","Tim",44.22);
-        bank.addCustomerTransaction("Some location","Mike",12.22);
-        bank.addCustomerTransaction("Some location","Tim",1.22);
-        bank.listCustomers("Some location",true);
+        bank.addCustomer("Sydney", "Bob", 150.53);
+        bank.addCustomerTransaction("Some", "Tim", 44.22);
+        bank.addCustomerTransaction("Some", "Mike", 12.22);
+        bank.addCustomerTransaction("Some", "Tim", 1.22);
+        bank.listCustomers("Some", true);
+        bank.listCustomers("Sydney", true);
+
+        bank.addBranch("Melbourne");
+
+        if (!bank.addCustomer("Melbourne", "Brian", 5.33)) {
+            System.out.println("Error: Melbourne is not pinned to our Bank");
+        }
+
+        if (!bank.addBranch("Some")) {
+            System.out.println("Some branch already exists");
+        }
     }
 }

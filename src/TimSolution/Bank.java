@@ -11,9 +11,6 @@ public class Bank {
         this.branches = new ArrayList<Branch>();
     }
 
-//    public void addBranch(Branch newBranch) {
-//        branches.add(newBranch);
-//    }
 
     public boolean addBranch(String branchName) {
         if (findBranch(branchName) == null) {
@@ -41,7 +38,7 @@ public class Bank {
 
     //loop through the branches arraylist and find 1 branch name
     private Branch findBranch(String branchName) {
-        for (int i = 0; i <= this.branches.size(); i++) {
+        for (int i = 0; i < this.branches.size(); i++) {
             Branch checkedBranch = this.branches.get(i);
             if (checkedBranch.getName().equals(branchName)) {
                 return checkedBranch; // < -- this.customers.get(i)
@@ -72,6 +69,4 @@ public class Bank {
             return false;
         }
     }
-
-
 }
