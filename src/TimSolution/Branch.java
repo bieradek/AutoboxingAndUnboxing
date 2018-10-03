@@ -6,13 +6,13 @@ public class Branch {
     private String name;
     private ArrayList<Customer> customers;
 
-    public Branch(String name, ArrayList<Customer> customers) {
+    public Branch(String name) {
         this.name = name;
         this.customers = new ArrayList<Customer>();
     }
 
     public boolean newCustomer(String customerName, double initialAmount) {
-        if (findCustomer(customerName) != null) {
+        if (findCustomer(customerName) == null) { // in other words, if there is no duplicate of customer name
             this.customers.add(new Customer(customerName, initialAmount)); // add to the list a new customer with gvien name and initial amount, i.e. create customer on the fly
             return true;
         }
@@ -44,5 +44,9 @@ public class Branch {
 
     public void addCustomer(Customer newCustomer) {
         customers.add(newCustomer);
+    }
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
     }
 }

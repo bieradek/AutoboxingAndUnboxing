@@ -11,9 +11,9 @@ public class Branch {
         this.customer = customer;
     }
 
-    public void addInitialTransactionAmount(double initialAmount, String customerName) {
-        this.customer.get(customer.indexOf(customerName)).setTransactions(Double.valueOf(initialAmount));
-    }
+//    public void addInitialTransactionAmount(double initialAmount, String customerName) {
+//        this.customer.get(customer.indexOf(customerName)).setTransactions(Double.valueOf(initialAmount));
+//    }
 
     public void addToCustomerList(Customer newCustomer) {
         customer.add(newCustomer);
